@@ -76,3 +76,21 @@ try {
 } catch (e) {
     console.error("Gestione del errore", e)
 }
+
+
+function parseInput(input: unknown): string {
+    if (typeof input === "string") {
+        return input
+    } else if (typeof input === "number") {
+        return input.toString()
+    } else {
+        error("Tipo di input non valido, deve essere una stringa o un numero")
+    }
+}
+
+try {
+    console.log(parseInput("Ciao"))
+    console.log(parseInput(123))
+} catch (err) {
+    console.error("Errore:", err);
+}
