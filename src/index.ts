@@ -21,7 +21,7 @@ const todos: Todo[] = [
 
 let idCounter = todos.length + 1;
 
-function addTodo( titleinput: string ) {
+function addTodo(titleinput: string) {
     const newTodo: Todo = {
         id: idCounter,
         title: titleinput,
@@ -31,7 +31,7 @@ function addTodo( titleinput: string ) {
     idCounter++;
 
     todos.push(newTodo)
-   // return newTodo;
+    // return newTodo;
 }
 
 
@@ -45,7 +45,7 @@ console.log(todos)
 function assignTodoToUser(todoId: number, userId: number) {
     const todo = todos.find(todo => todo.id === todoId)
 
-    if(todo){
+    if (todo) {
         todo.userId = userId
         return `Il Todo con ID ${todoId} è stato assegnato all'utente con ID ${userId}`
     }
@@ -58,7 +58,7 @@ console.log(assignTodoToUser(2, 15))
 console.log(assignTodoToUser(3, 27))
 
 
-function getUserTodos(userId: number ) {
+function getUserTodos(userId: number) {
     return todos.filter(todo => todo.userId === userId);
 }
 
@@ -66,3 +66,13 @@ function getUserTodos(userId: number ) {
 console.log(getUserTodos(15))
 console.log(getUserTodos(27))
 console.log(getUserTodos(100))
+
+function error(message: string): never {
+    throw new Error(message)
+}
+
+try {
+    error("Errore")
+} catch (e) {
+    console.error("Gestione del errore", e)
+}
