@@ -11,6 +11,7 @@ export interface User {
     id: number;
     name: string;
     email?: string;
+    readonly todos: ReadonlyArray<Todo>;
 }
 
 export interface TodoWithMetadata extends Todo {
