@@ -21,7 +21,7 @@ const todos: Todo[] = [
 
 let idCounter = todos.length + 1;
 
-function addTodo(titleinput: string,  metadata?: any) {
+function addTodo(titleinput: string, metadata?: string | object) {
     const newTodo: Todo = {
         id: idCounter,
         title: titleinput,
@@ -36,8 +36,8 @@ function addTodo(titleinput: string,  metadata?: any) {
 }
 
 
-// console.log(addTodo("Studiare Typescript"));
-// console.log(addTodo("Fare il progetto finale"));
+addTodo("Studiare Typescript","metadata come stringa")
+addTodo("Fare il progetto finale", {nome: "metadata come oggetto"})
 
 addTodo("Studiare Typescript")
 console.log(todos)
