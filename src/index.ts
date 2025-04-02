@@ -26,7 +26,7 @@ function addTodo(titleinput: string, metadata?: string | object) {
         id: idCounter,
         title: titleinput,
         completed: false,
-        metadata: metadata 
+        metadata: metadata
     }
 
     idCounter++;
@@ -36,8 +36,8 @@ function addTodo(titleinput: string, metadata?: string | object) {
 }
 
 
-addTodo("Studiare Typescript","metadata come stringa")
-addTodo("Fare il progetto finale", {nome: "metadata come oggetto"})
+addTodo("Studiare Typescript", "metadata come stringa")
+addTodo("Fare il progetto finale", { nome: "metadata come oggetto" })
 
 addTodo("Studiare Typescript")
 console.log(todos)
@@ -95,3 +95,16 @@ try {
 } catch (err) {
     console.error("Errore:", err);
 }
+
+function updateTodo(todoId: number, updates: Partial<Todo>) {
+    const todo = todos.find(t => t.id === todoId)
+    if (todo) {
+        Object.assign(todo, updates);
+        return todo
+    }
+
+
+}
+
+const updatedTodo = updateTodo(4, { completed: false, title: "UpdateTodo" });
+console.log(updatedTodo);
