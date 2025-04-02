@@ -31,4 +31,19 @@ addTodo("Studiare Typescript")
 console.log(todos)
 
 
+function assignTodoToUser(todoId: number, userId: number) {
+    const todo = todos.find(todo => todo.id === todoId)
+
+    if(todo){
+        todo.userId
+        return `Il Todo con ID ${todoId} è stato assegnato all'utente con ID ${userId}`
+    }
+}
+
+addTodo("Studiare Typescript")
+addTodo("Fare il progetto finale")
+
+console.log(assignTodoToUser(1, 15))
+console.log(assignTodoToUser(2, 27))
+
 
