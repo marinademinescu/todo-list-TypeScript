@@ -21,11 +21,12 @@ const todos: Todo[] = [
 
 let idCounter = todos.length + 1;
 
-function addTodo(titleinput: string) {
+function addTodo(titleinput: string,  metadata?: any) {
     const newTodo: Todo = {
         id: idCounter,
         title: titleinput,
-        completed: false
+        completed: false,
+        metadata: metadata 
     }
 
     idCounter++;
