@@ -1,4 +1,9 @@
 import { Todo } from "./types"
+import { TodoWithMetadata } from "./types";
+import {User} from  "./types"
+import { Project } from "./types";
+
+
 
 const todos: Todo[] = [
     {
@@ -119,3 +124,48 @@ const summary = getTodoSummary(todo)
 
 console.log(summary)
 
+let projectIdCounter = 1 
+let userIdCounter = 1    
+let todoIdCounter = 1    
+
+function createProject(name: string, usersData: { name: string; todos: string[] }[]): Project {
+    const users: User[] = usersData.map(userData => {
+       
+        const todos: Todo[] = userData.todos.map(title => ({
+            id: todoIdCounter++,
+            title: title,
+            completed: false
+        }))
+
+    
+        return {
+            id: userIdCounter++,  
+            name: userData.name,
+            todos: todos
+        }
+    })
+
+  
+    const allTodos: Todo[] = users.flatMap(user => user.todos)
+
+   
+    const project: Project = {
+        id: projectIdCounter++,  
+        name: name,
+        users: users,
+        todos: allTodos
+    };
+
+    return project
+}
+
+
+const usersData = [
+    { name: 'Nicholas', todos: ['Correre', 'Studiare'] },
+    { name: 'Maria', todos: ['Fare sport', 'Leggere'] },
+]
+
+const newProject = createProject('Progetto Semplice', usersData)
+
+
+console.log(newProject)
