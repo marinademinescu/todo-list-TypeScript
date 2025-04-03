@@ -106,5 +106,16 @@ function updateTodo(todoId: number, updates: Partial<Todo>) {
 
 }
 
-const updatedTodo = updateTodo(4, { completed: false, title: "UpdateTodo" });
-console.log(updatedTodo);
+const updatedTodo = updateTodo(4, { completed: false, title: "UpdateTodo" })
+console.log(updatedTodo)
+
+
+function getTodoSummary(todo: Todo): [string, boolean] {
+    return [todo.title, todo.completed];
+}
+
+const todo = todos[2]
+const summary = getTodoSummary(todo)
+
+console.log(summary)
+
